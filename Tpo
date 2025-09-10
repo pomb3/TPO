@@ -1,1 +1,30 @@
+import random
+def productoSelec(elección):
+    producto =[
+        ['Manzana','Televisión','Zapatillas','Cubiertos','Desodorante','Espejo'],
+        [5,			1000, 			100, 		75,			50,			200    ]
+    ]
+    articulo, precio = producto[0][elección], producto[1][elección]
+    return articulo, precio
 
+def generarCliente():
+    dni = random.randint(111111, 99999999)
+    cliente = []
+    
+    i=1
+    for i in range(random.randint(1,5)): #Cantidad de productos del cliente
+        cliente.append(random.randint(0, 5))
+    
+    return cliente
+
+def caja(cliente):
+    productos=[]
+    precioTotal = 0
+    i=1
+    for i in range(len(cliente)):
+        producto, precio = cliente[i], cliente[i]
+        productos.append(producto)
+        precioTotal += precio
+    print(precioTotal, productos, end='\n')
+
+caja(generarCliente())
